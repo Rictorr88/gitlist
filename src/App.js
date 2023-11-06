@@ -1,13 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-import User from './user';
-import { useState } from 'react'
-
-
+import './App.css'
+import Layout from './components/Layout'
 
 function App() {
-
-  }
+  return (
+    <Layout>
+      <div>
+        profile
+      </div>
+      <div>
+        filters
+      </div>
+      <div>
+        repoList
+      </div>
+      <div>
+        search
+      </div>
+    </Layout>
+  )
+}
 
  
 
