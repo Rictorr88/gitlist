@@ -19,7 +19,7 @@ const ButtonStyled = styled.button`
     background: var(--white);
     color: var(--button);
   }
-`;
+`
 
 function Button( {text, link, className, icon} ) {
     const component = link ? 'a' : 'button'
