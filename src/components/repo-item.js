@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import Language from './language'
+import Icon from './icon'
 
 const RepoItemStyled = styled.div`
     padding-block: 1rem;
@@ -42,9 +43,30 @@ const RepoItemStyled = styled.div`
         padding-block: .25rem;
         border-radius: 32px;
     }
+
+    .details {
+        display: flex;
+        gap: 1rem;
+        font: var(--caption-regular);
+
+    }
+    .details-item {
+        display: flex;
+        gap: .5rem;
+        align-items: center;
+        color: var(--grey-1);
+        & span::first-letter {
+            text-transform: uppercase;
+        }
+    }
 `
 
 function RepoItem(props) {
+    const updatedAt = new Date(props.updated_at)
+    const today = new Date() 
+    const difMilliseconds = updatedAt - today
+    const difDays= Math.ceil(difMilliseconds / (1000 * 60 * 60 * 24))
+    const timeAgo = new Intl.RelativeTimeFormat('es').format(difDays, 'days')
     return (
         <RepoItemStyled>
             <h3 className="title">
@@ -73,9 +95,22 @@ function RepoItem(props) {
                     </div>
                 ) : null
             }
+            <div className="details">
             {
                 props.language ? <Language name={props.language} /> : null
             }
+                <span className="details-item">
+                    <Icon name="star" />
+                    <span>{props.stargazers_count}</span>
+                </span>
+                <span className="details-item">
+                    <Icon name="branch" />
+                    <span>{props.forks_count}</span>
+                </span>
+                <span className="details-item">
+                    <span>{timeAgo} </span>
+                </span>
+            </div>
         </RepoItemStyled>
     )
 }
