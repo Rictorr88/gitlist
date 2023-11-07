@@ -43,10 +43,16 @@ const ProfileStyled = styled.div`
 `
 
 function Profile() {
-  const { name, login, bio, followers, following } = props
+  const { twitter_username, blog, name, login, avatar_url, bio, followers, following, location } = props
   return (
     <ProfileStyled>
-      <img src="" className='avatar' width="278" height="278" alt="" />
+      <img
+        src={avatar_url}
+        className="avatar"
+        width="278"
+        height="278"
+        alt=""
+      />
       <p className="name">{name}</p>
       <p className="Username">{login}</p>
       <div className="button">
@@ -55,16 +61,15 @@ function Profile() {
       </div>
       <p className="bio info"> {bio} </p>
       <p className="followers info">
-        * {followers} <span>followers</span> <span>*</span> {following} <span>following</span>
+        * {followers} <span>followers</span> <span>*</span> {following}{" "}
+        <span>following</span>
       </p>
-      <p  className="stars info">* 81</p>
-      <p className="location">* Tampico</p>
-      <a className='info' href="https://rictor.com.mx" target="_blank" rel="noreferrer">
-        https://rictor.com.mx
+      <p className="location"> {location} </p>
+      <a className="info" href={blog} target="_blank" rel="noreferrer">
+        {blog}
       </a>
-      <a className='info' href="https://rictor.com.mx" rel="noreferrer">
-        @rictor88
-      </a>
+      <a className="info" href={`https://twitter.com/${twitter_username}`} target="_blank" rel="noreferrer">
+        @{twitter_username}</a>
     </ProfileStyled>
   );
 }
