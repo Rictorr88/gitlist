@@ -1,9 +1,13 @@
 import styled from 'styled-components'
 import props from './profile-data'
+import Button from './button'
 
 const ProfileStyled = styled.div`
   grid-area: profile;
   /* background-color: yellow; */
+  .custom {
+    border-color: green;
+  }
   .avatar {
     border-radius: 50%;
     border: 1px solid var(--grey-1);
@@ -14,12 +18,13 @@ const ProfileStyled = styled.div`
   .name {
     font: var(--headline1);
     color: var(--white);
-    margin-block-end: auto.5rem;
+    margin: 0;
+    margin-block-end: .5rem;
   }
   .username {
     margin-block-start: .5rem;
     margin-block-end: 1.5rem;
-    font: var(--headline2-light);
+    font: var(--headline2-ligth);
   }
   .info {
     /* border: 1px solid purple; */
@@ -56,15 +61,24 @@ function Profile() {
       <p className="name">{name}</p>
       <p className="Username">{login}</p>
       <div className="button">
-        <button>follow</button>
-        <button>sponsors</button>
+        <Button
+        text="Follow"
+        link="#"
+        className= "custom"
+        />
+        <Button
+        text="Sponsor"
+        icon= {<i>💚</i>}
+        />
       </div>
       <p className="bio info"> {bio} </p>
       <p className="followers info">
         * {followers} <span>followers</span> <span>*</span> {following}{" "}
         <span>following</span>
       </p>
-      <p className="location"> {location} </p>
+      <p className="location info">
+        • {location}
+      </p>
       <a className="info" href={blog} target="_blank" rel="noreferrer">
         {blog}
       </a>
