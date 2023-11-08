@@ -49,6 +49,8 @@ const ProfileStyled = styled.div`
 function Profile(props) {
   const { twitter_username, blog, name, login, avatar_url, bio, followers, following, location } = props
 
+
+
   return (
     <ProfileStyled>
 
