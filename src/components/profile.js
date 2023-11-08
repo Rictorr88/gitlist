@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import props from './profile-data'
 import Button from './button'
 import Icon from './icon'
+import { useState, useEffect } from "react"
+
 
 const ProfileStyled = styled.div`
   grid-area: profile;
@@ -48,6 +50,11 @@ const ProfileStyled = styled.div`
 
 function Profile() {
   const { twitter_username, blog, name, login, avatar_url, bio, followers, following, location } = props
+  const {coolName, setCoolName} = useState(name)
+  useEffect()
+  setTimeout(() => {
+    setCoolName('Rictor')
+  }, 3000)
   return (
     <ProfileStyled>
 
