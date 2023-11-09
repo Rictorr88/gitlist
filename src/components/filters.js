@@ -27,7 +27,7 @@ function Filters({repoListCount, setSearch}) {
     }
   return (
     <FiltersStyled>
-     <h2 className="Count" >
+     <h2 className="count" >
       Repositorios {repoListCount}
      </h2>
     <div className="action-list">
